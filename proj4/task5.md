@@ -1,4 +1,4 @@
-# Project 4 Task 5
+# Project 4 Task 5 (Including Extra Credit at End)
 
 # Shaders
 
@@ -18,33 +18,33 @@ The ambient component is responsible for shading based on the “base” level o
 
 #### Ambient Only
 
-![Ambient.png](Project%204%20Task%205.assets/Ambient.png)
+![Ambient.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Ambient.png)
 
 #### Diffuse Only
 
-![Diffuse.png](Project%204%20Task%205.assets/Diffuse.png)
+![Diffuse.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Diffuse.png)
 
 #### Specular Only
 
-![Specular.png](Project%204%20Task%205.assets/Specular.png)
+![Specular.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Specular.png)
 
 #### Entire Blinn-Phong Model
 
-![Entire Blinn Phong.png](Project%204%20Task%205.assets/Entire%20Blinn%20Phong.png)
+![Entire Blinn Phong.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Entire%20Blinn%20Phong.png)
 
 # Texture Shader with Texture 3
 
-![texture with texture 3.png](Project%204%20Task%205.assets/texture%20with%20texture%203.png)
+![texture with texture 3.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/texture%20with%20texture%203.png)
 
 # Bump Mapping and Displacement Mapping
 
 ### Bump Mapping vs Displacement Mapping
 
-![bump.png](Project%204%20Task%205.assets/bump.png)
+![bump.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/bump.png)
 
 Bump Mapping.
 
-![displacement.png](Project%204%20Task%205.assets/displacement.png)
+![displacement.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/displacement.png)
 
 Displacement mapping.
 
@@ -54,15 +54,15 @@ This is clearly visible in the results. The cloth isn’t “draping down smooth
 
 ### Coarse vs fine m
 
-![bump 16.png](Project%204%20Task%205.assets/bump%2016.png)
+![bump 16.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/bump%2016.png)
 
-![bump 128 2.png](Project%204%20Task%205.assets/bump%20128%202.png)
+![bump 128 2.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/bump%20128%202.png)
 
 Bump mapping with coarse mesh (left), fine mesh (right)
 
-![displacement 16.png](Project%204%20Task%205.assets/displacement%2016.png)
+![displacement 16.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/displacement%2016.png)
 
-![Image.png](Project%204%20Task%205.assets/Image.png)
+![Image.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Image.png)
 
 Displacement mapping with coarse mesh (left), fine mesh (right)
 
@@ -72,13 +72,39 @@ Displacement mapping is able to take advantage of the finer mesh, since it chang
 
 ### On Cloth and Sphere
 
-![mirror sphere cloth.png](Project%204%20Task%205.assets/mirror%20sphere%20cloth.png)
+![mirror sphere cloth.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/mirror%20sphere%20cloth.png)
 
 ### On Sphere
 
-![mirror sphere.png](Project%204%20Task%205.assets/mirror%20sphere.png)
+![mirror sphere.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/mirror%20sphere.png)
 
 ### On Cloth
 
-![mirror cloth.png](Project%204%20Task%205.assets/mirror%20cloth.png)
+![mirror cloth.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/mirror%20cloth.png)
+
+# Extra Credit: Custom Shaders
+
+I combined the Blinn-Phong model with texturing in order to have a nicely lit effect, in addition to simulating some transparency based on the lighting itself.
+
+The result of combining Blinn-Phong with texturing made the renderings of texture cloths look a little bit more realistic, reminding me of a slight “beach towel” look.
+
+For implementing transparency, I did some research and it turned out to be easy: reducing the `alpha` parameter would reduce the opacity. At first, I reduced this to `0.5` uniformly. The first two screenshots show this.
+
+Finally, I then made this “shading-dependent", so that the larger stronger the diffuse component in the Blinn-Phong shading model, the more "solid" the object would look. Because this was done in a "proportional" manner, this meant that the areas with stronger specular shading would actually appear to be more transparent.
+
+#### Custom shader screenshots
+
+![Image.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Image%20(2).png)
+
+Notice the specular highlights from the light, indicating Blinn-Phong shading, on the textured cloth.
+
+![Image.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Image%20(3).png)
+
+Notice the cloth is slightly transparent at the bottom.
+
+#### Custom shader with per-vertex lighting-based transparency
+
+![Image.png](Project%204%20Task%205%20(Including%20Extra%20Credit%20at%20End).assets/Image%20(4).png)
+
+Notice how parts that would typically have strong specular highlights are quite transparent; the other parts (which are mostly illuminated by diffuse lighting) are quite solid
 
